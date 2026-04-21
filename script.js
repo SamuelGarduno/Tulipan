@@ -69,17 +69,17 @@ flower.addEventListener('pointerdown', (e) => {
 });
 
 
-function heartD(cx, cy, sz) {
-      const r   = sz * 0.70;   
-      const top = cy - r * 2.0; 
-      const bot = cy + r * 0.9; 
-      const mid = cy - r * 0.1; 
-      const dip = cy - r * 0.3; 
+  function heartD(cx, cy, sz) {
+    const s = sz;
+    const top = cy - s * 0.6;
+    const bottom = cy + s;
+    const lateral = s * 1.4; 
+    const dip = cy - s * 0.3; 
 
-      return `M${cx},${bot}
-        C${cx - r*1.4},${mid} ${cx - r*1.4},${top} ${cx},${dip}
-        C${cx + r*1.4},${top} ${cx + r*1.4},${mid} ${cx},${bot} Z`;
-    }
+    return `M${cx},${bottom}
+            C${cx - lateral},${cy + s * 0.5} ${cx - lateral},${top - s * 0.7} ${cx},${dip}
+            C${cx + lateral},${top - s * 0.7} ${cx + lateral},${cy + s * 0.5} ${cx},${bottom} Z`;
+  }
 
     function drawHearts() {
         const container = document.getElementById('frame');
@@ -90,9 +90,9 @@ function heartD(cx, cy, sz) {
         svg.innerHTML = '';
 
         const COLOR = 'black';
-        const HEART_SIZE = 30;
+        const HEART_SIZE = 25;
         const GAP        = 160;
-        const MARGIN     = 35;
+        const MARGIN     = 40;
         const R          = HEART_SIZE * 1.4;
 
         function addHeart(cx, cy) {
