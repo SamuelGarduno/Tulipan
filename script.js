@@ -38,14 +38,14 @@ for(let i=0; i<5; i++) {
 function burstHearts(e) {
     if (e) e.stopPropagation();
 
-    const amount = 15;
+    const amount = 20;
     for (let i = 0; i < amount; i++) {
         const heart = document.createElement('div');
         heart.classList.add('burst-heart');
         heart.innerHTML = '❤';
 
         const angle = Math.random() * Math.PI * 2;
-        const velocity = 60 + Math.random() * 140;
+        const velocity = 150 + Math.random() * 140;
         const tx = Math.cos(angle) * velocity;
         const ty = Math.sin(angle) * velocity;
         const tr = (Math.random() - 0.5) * 500;
@@ -54,7 +54,7 @@ function burstHearts(e) {
         heart.style.setProperty('--ty', `${ty}px`);
         heart.style.setProperty('--tr', `${tr}deg`);
 
-        heart.style.animation = 'heartBurst 0.8s ease-out forwards';
+        heart.style.animation = 'heartBurst 1s ease-out forwards';
 
         container.appendChild(heart);
 
